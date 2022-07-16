@@ -15,10 +15,13 @@ class RetroRepository @Inject constructor(
     private val retroServiceApi: RetroServiceApi,
     private val appDao: AppDao
 ) {
-    //pattern add data
+    //pattern
+    //LiveData อ่านได้ อย่างเดียว
+    //MutableLiveData สามารถ เปลี่ยนค่าได้
+    //https://www.theduckcreator.in.th/tin-android-docs/AndroidFundamental/LiveData.html
     private val _apiResponseLiveData = MutableLiveData<NetworkResult<RepositoriesList>>()
     val apiResponseLiveData: LiveData<NetworkResult<RepositoriesList>>
-        get() = _apiResponseLiveData
+        get() = _apiResponseLiveData //getter
     //Pattern
 
     fun getAllRecords(): LiveData<List<RepositoryData>> {
