@@ -12,7 +12,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class RetroRepository @Inject constructor(
-    private val retroServiceInterface: RetroServiceInterface,
+    private val retroServiceApi: RetroServiceApi,
     private val appDao: AppDao
 ) {
     //pattern add data
@@ -32,7 +32,7 @@ class RetroRepository @Inject constructor(
 
     //get data from api
     suspend fun makeApiCall(query: String?) {
-        val response = retroServiceInterface.getDateFromAPI(query!!)
+        val response = retroServiceApi.getDateFromAPI(query!!)
         handleResponse(response)
     }
 
