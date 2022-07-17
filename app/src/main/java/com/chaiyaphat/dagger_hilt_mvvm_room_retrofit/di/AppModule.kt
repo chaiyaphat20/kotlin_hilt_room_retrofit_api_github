@@ -3,6 +3,7 @@ package com.chaiyaphat.dagger_hilt_mvvm_room_retrofit.di
 import android.content.Context
 import com.chaiyaphat.dagger_hilt_mvvm_room_retrofit.db.AppDao
 import com.chaiyaphat.dagger_hilt_mvvm_room_retrofit.db.AppDatabase
+import com.chaiyaphat.dagger_hilt_mvvm_room_retrofit.db.SchoolDao
 import com.chaiyaphat.dagger_hilt_mvvm_room_retrofit.network.RetroServiceApi
 import dagger.Module
 import dagger.Provides
@@ -20,7 +21,7 @@ class AppModule {
     @Provides
     @Singleton
     fun getAppDatabase(@ApplicationContext context: Context): AppDatabase {
-        return AppDatabase.getAppDBInstance(context)
+        return AppDatabase.getInstance(context)
     }
 
     //1 service from AppDao
@@ -28,6 +29,13 @@ class AppModule {
     @Singleton
     fun getAppDao(appDatabase: AppDatabase): AppDao {
         return appDatabase.getAppDao()
+    }
+
+    //1 service from SchoolDao
+    @Provides
+    @Singleton
+    fun getSchoolDao(appDatabase: AppDatabase): SchoolDao {
+        return appDatabase.getSchoolDao()
     }
 
     //---------API-------//
