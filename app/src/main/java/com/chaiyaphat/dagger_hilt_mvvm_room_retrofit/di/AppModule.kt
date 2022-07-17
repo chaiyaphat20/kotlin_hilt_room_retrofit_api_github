@@ -24,14 +24,14 @@ class AppModule {
         return AppDatabase.getInstance(context)
     }
 
-    //1 service from AppDao
+    //1 from AppDao
     @Provides
     @Singleton
     fun getAppDao(appDatabase: AppDatabase): AppDao {
         return appDatabase.getAppDao()
     }
 
-    //1 service from SchoolDao
+    //2 from SchoolDao
     @Provides
     @Singleton
     fun getSchoolDao(appDatabase: AppDatabase): SchoolDao {
