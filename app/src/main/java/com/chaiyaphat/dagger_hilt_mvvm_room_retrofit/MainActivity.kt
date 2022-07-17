@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    fun schoolDb() {
+    private fun schoolDb() {
         //>>add database
         val directors = listOf(
             Director("Mike Litoris", "Jake Wharton School"),
